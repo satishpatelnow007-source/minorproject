@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="text" placeholder="Enter ">
+    <button type="button">Add</button>
+     <select name="" id="myOption">
+          <option value="square">square</option>
+          <option  value="circle">circle</option>
+          <option value="pyramid">pyramid</option>
+     </select>
+    <input id="color" type="color"> 
+    <button  type="button" id="Reset" >Reset</button>
+    <select name="" id="direction">
+        <option value="row">Row</option>
+        <option value="column">Column</option>
+    </select>
+    <div class="boxContainer">
+        <!-- <div class="square"></div> -->
+          <!-- <div class="circle"></div> -->
+             <!-- <div class="pyramid"></div> -->
+    </div>
+   
+    
+    
+</body>
+   <script >
+    const input = document.querySelector('input[type="text"]');
+    const button = document.querySelector('button');
+    const container = document.querySelector('.boxContainer');
+    const colorInputTag = document.querySelector("#color");
+    const typeSelect = document.getElementById("myOption");
+    const resetContainer = document.getElementById("Reset");
+    const direction = document.getElementById("direction");
+
+    direction.addEventListener("change", function() {
+        const directionInput = direction.value;
+        console.log(container.style, directionInput);
+        container.style.flexDirection = directionInput;
+    });
+
+    resetContainer.addEventListener("click", function() {
+        container.innerHTML = "";
+    });
+
+    button.addEventListener('click', function() {
+        container.innerHTML = "";
+
+        const numberOfBoxes = input.value;
+        const colorTag = colorInputTag.value;
+        const option = typeSelect.value;
+
+        for (let i = 1; i <= numberOfBoxes; i++) {
+            const boxEle = document.createElement("div");
+            boxEle.classList.add(option);
+            boxEle.style.backgroundColor = colorTag;
+             boxEle.addEventListener("click", function () {
+          boxEle.style.backgroundColor = "red";
+        });
+        boxEle.addEventListener("dblclick", function () {
+          container.removeChild(boxEle);
+        });
+            container.appendChild(boxEle);
+            // console.dir(container);
+        }
+    });
+   </script>
+</html>

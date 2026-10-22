@@ -1,0 +1,31 @@
+.boxContainer {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    background-color: antiquewhite;
+}
+
+.square {
+    width: 100px;
+    height: 100px;  
+    margin: 10px;
+   
+}
+
+.circle{
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+   
+    border-radius: 50px;
+
+}
+
+.pyramid{
+    width: 0;
+    height: 0;
+    margin: 10px;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+   
+}
